@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// The service definition.
+service rpc {
+  //  request-response RPC
+  rpc invoke (Request) returns (Reply) {}
+
+  rpc test (Request) returns (Reply) {}
+
+  // server-side streaming RPC
+  // rpc serverStream(Rectangle) returns (stream Feature) {}
+
+  // client-side streaming RPC
+  // rpc clientStream(stream Point) returns (RouteSummary) {}
+
+  // bidirectional streaming RPC
+  // rpc unary(stream RouteNote) returns (stream RouteNote) {}
+}
+
+service healthy {
+  rpc ping (Request) returns (Reply) {}
+}
+
+message Request {
+  bytes body = 1;
+}
+
+message Reply {
+  bytes body = 1;
+}
