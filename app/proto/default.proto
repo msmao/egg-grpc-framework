@@ -3,7 +3,7 @@ syntax = "proto3";
 // The service definition.
 service rpc {
   //  request-response RPC
-  rpc invoke (Request) returns (Reply) {}
+  rpc invoke (RpcRequest) returns (RpcResponse) {}
 
   rpc test (Request) returns (Reply) {}
 
@@ -19,6 +19,15 @@ service rpc {
 
 service healthy {
   rpc ping (Request) returns (Reply) {}
+}
+
+message RpcRequest {
+  string method = 1;
+  bytes params = 2;
+}
+
+message RpcResponse {
+  bytes body = 1;
 }
 
 message Request {

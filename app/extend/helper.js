@@ -2,8 +2,10 @@
 
 module.exports = {
 
-  dns(endpoint) {
+  dns(hostname) {
     const { ctx, app } = this;
+
+    if (hostname === 'fuckService') return { hostname, endpoint: '127.0.0.1:50051' };
 
     // .env 有指定，优先返回 env 环境变量，变量名需为大写
     const ENDPOINT = String(`${serviceName}Svc`).replace(/(.)([A-Z])/g, '$1_$2').toUpperCase();

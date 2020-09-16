@@ -17,6 +17,8 @@ class AppBootHook {
     // // 例如：插入一个中间件到框架的 coreMiddleware 之间
     // const statusIdx = this.app.config.coreMiddleware.indexOf('status');
     // this.app.config.coreMiddleware.splice(statusIdx + 1, 0, 'limit');
+
+    this.app.config.appMiddleware.splice(0, 0, 'rpcProxy');
   }
 
   // 配置文件加载完成
