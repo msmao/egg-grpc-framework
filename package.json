@@ -1,5 +1,5 @@
 {
-  "name": "@obelisk/egg",
+  "name": "egg-obelisk",
   "version": "1.0.0",
   "description": "obelisk egg framework",
   "dependencies": {
