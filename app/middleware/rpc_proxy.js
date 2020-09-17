@@ -9,7 +9,7 @@ module.exports = () => {
         return ctx.rpc;
       },
       apply: async (target, that, args) => {
-        console.log('apply:', { target, that, args })
+        // console.log('apply:', { target, that, args })
         const proto = target.args[0]
         const client = ctx.grpc(target.args);
         
@@ -23,9 +23,6 @@ module.exports = () => {
           };
           client[invoke].call(client, data, callback);
         })
-        // 如果想要禁止使用非new的方式来调用函数，直接抛出异常即可
-        // throw new Error(`Function ${target.name} cannot be invoked without 'new'`)
-        // return new (target.bind(thisArg, ...args))()
       }
     })
     await next();
