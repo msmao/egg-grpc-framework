@@ -10,7 +10,7 @@ module.exports = () => {
       },
       apply: async (target, that, args) => {
         // console.log('apply:', { target, that, args })
-        const proto = target.args[0]
+        const proto = 'default'; // target.args[0] // 暂时只支持 default protobuf
         const client = ctx.grpc(target.args);
         
         const invoke = proto === 'default' ? 'invoke' : target.args.pop();
