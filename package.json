@@ -1,6 +1,6 @@
 {
   "name": "egg-obelisk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "obelisk egg framework",
   "dependencies": {
     "@grpc/grpc-js": "^1.1.5",
@@ -38,6 +38,8 @@
   },
   "keywords": [
     "egg",
+    "grpc",
+    "egg-grpc",
     "egg-framework"
   ],
   "author": "Jian",
