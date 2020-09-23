@@ -1,15 +1,15 @@
 # egg-obelisk
 
-gRPC framework for egg
+支持 gRPC 请求的 egg 框架
 
-## Features
+## 特性
 
-1. Support gRPC + ProtoFuf
-2. Extend EGG Router To Support RPC Method
-3. It Supports EGG Middleware、Plugin
-4. It Supports Both HTTP、gRPC Request，Common Use Controller And Service
+1. 支持 gRPC + ProtoFuf
+2. 扩展 egg 路由支持 RPC 方法
+3. 支持 egg 的中间件、插件
+4. 同时支持 HTTP、gRPC 请求，且可共用 Controller 和 Service
 
-## QuickStart
+## 快速开始
 
 ```bash
 $ npm install egg-obelisk --save
