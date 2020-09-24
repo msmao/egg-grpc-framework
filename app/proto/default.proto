@@ -22,8 +22,7 @@ service healthy {
 }
 
 message RpcRequest {
-  string method = 1;
-  bytes params = 2;
+  bytes body = 1;
 }
 
 message RpcResponse {
