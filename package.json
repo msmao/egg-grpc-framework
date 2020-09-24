@@ -1,7 +1,7 @@
 {
   "name": "egg-obelisk",
-  "version": "1.0.3",
-  "description": "grpc for egg framework",
+  "version": "1.0.4",
+  "description": "gRPC framework for egg",
   "dependencies": {
     "@grpc/grpc-js": "^1.1.5",
     "@grpc/proto-loader": "^0.5.5",

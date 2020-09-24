@@ -1,4 +1,3 @@
-# egg-obelisk
 
 支持 gRPC 请求的 egg 框架
 
@@ -19,12 +18,9 @@ $ npm install egg-obelisk --save
 // {app_root}/package.json
 {
   "name": "user",
-  ...
   "egg": {
-    ...
     "framework": "egg-obelisk"
   },
-  ...
 }
 ```
 
@@ -35,6 +31,7 @@ $ npm install egg-obelisk --save
 module.exports = app => {
   const { router, controller } = app;
   router.rpc('/user/login', controller.user.login);
+  router.get('/rpc', controller.user.test);
 };
 ```
 
@@ -49,6 +46,13 @@ class UserController extends Controller {
   async login() {
     const body = this.ctx.request.body;
     const result = await this.service.user.login(body);
+    this.ctx.body = result;
+  }
+
+  // test http method call rpc
+  async test() {
+    const params = this.ctx.query;
+    const result = await this.rpc.userService.user.login(params);
     this.ctx.body = result;
   }
 
@@ -73,4 +77,8 @@ class UserService extends Service {
 }
 
 module.exports = UserService;
+```
+
+```bash
+$ curl http://localhost:7001/rpc?username=admin&password=xxx
 ```

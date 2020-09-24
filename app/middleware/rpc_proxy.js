@@ -18,8 +18,14 @@ module.exports = () => {
 
         return new Promise((resolve, reject) => {
           const callback = (error, response) => {
-            if (error) reject(error);
-            response.body ? resolve(JSON.parse(response.body.toString())) : resolve(response)
+            if (error) return reject(error);
+            if (!response.body) return resolve(response);
+            const body = Buffer.isBuffer(response.body) ? response.body.toString() : response.body;
+            try {
+              return resolve(JSON.parse(body));
+            } catch (e) {
+              return reject(e);
+            }
           };
           client[invoke].call(client, data, callback);
         })
