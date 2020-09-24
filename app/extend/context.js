@@ -16,7 +16,7 @@ module.exports = {
   grpc(args) {
     const dns = this.helper.dns(args.shift());
     // const method = args.pop();
-    console.log(Object.assign(dns, { args }));
+    this.app.logger.info(JSON.stringify(Object.assign(dns, { args: args.join('.') })));
     // return new this.app.proto.echo.Echo(dns.endpoint, this.app.grpcClientCredentials);
     return new this.app.proto.default.rpc(dns.endpoint, this.app.grpcClientCredentials);
   }

@@ -1,10 +1,13 @@
 'use strict';
 
+const grpc = require('@grpc/grpc-js');
+
 module.exports = () => {
   return async (ctx, next) => {
-    ctx.rpc = new Proxy(() => {}, {
+    ctx.rpc = new Proxy(() => { }, {
       get: (target, key) => {
-        !target.args || !target.args.length ? target.args = [key] : target.args.push(key)
+        const service = !target.args || !target.args.length || key.lastIndexOf('Service') > 0;
+        service ? target.args = [key] : target.args.push(key);
         // console.log('get:', target, key)
         return ctx.rpc;
       },
@@ -12,9 +15,16 @@ module.exports = () => {
         // console.log('apply:', { target, that, args })
         const proto = 'default'; // target.args[0] // 暂时只支持 default protobuf
         const client = ctx.grpc(target.args);
-        
+
+        const metadata = new grpc.Metadata();
+        metadata.set('url', '/' + target.args.join('/'));
+        if (ctx.headers) metadata.set('headers', JSON.stringify(ctx.headers));
+        if (ctx.user) metadata.set('user', JSON.stringify(ctx.user));
+        const options = undefined;
+
+        // const context = Buffer.from(JSON.stringify(ctx.user ? ctx.user : {}))
         const invoke = proto === 'default' ? 'invoke' : target.args.pop();
-        const data = proto === 'default' ? { method: target.args.join('.'), params: Buffer.from(JSON.stringify(args.shift())) }: args.shift();
+        const data = proto === 'default' ? { body: Buffer.from(JSON.stringify(args.shift())), } : args.shift();
 
         return new Promise((resolve, reject) => {
           const callback = (error, response) => {
@@ -27,7 +37,7 @@ module.exports = () => {
               return reject(e);
             }
           };
-          client[invoke].call(client, data, callback);
+          client[invoke].call(client, data, metadata, callback);
         })
       }
     })

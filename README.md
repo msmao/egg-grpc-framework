@@ -15,7 +15,7 @@ $ npm install egg-obelisk --save
 ```
 
 ```json
-// {app_root}/package.json
+// package.json
 {
   "name": "user",
   "egg": {
