@@ -3,7 +3,7 @@
 
 ## 特性
 
-1. 支持 gRPC + ProtoFuf
+1. 支持 gRPC + Protobuf
 2. 扩展 egg 路由支持 RPC 方法
 3. 支持 egg 的中间件、插件
 4. 同时支持 HTTP、gRPC 请求，且可共用 Controller 和 Service
@@ -52,7 +52,7 @@ class UserController extends Controller {
   // test http method call rpc
   async test() {
     const params = this.ctx.query;
-    const result = await this.rpc.userService.user.login(params);
+    const result = await this.ctx.rpc.userService.user.login(params);
     this.ctx.body = result;
   }
 

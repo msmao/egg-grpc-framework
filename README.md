@@ -3,7 +3,7 @@ gRPC framework for egg
 
 ## Features
 
-1. Support gRPC + ProtoFuf
+1. Support gRPC + Protobuf
 2. Extend EGG Router To Support RPC Method
 3. It Supports EGG Middleware、Plugin
 4. It Supports Both HTTP、gRPC Request，Common Use Controller And Service
@@ -52,7 +52,7 @@ class UserController extends Controller {
   // test http method call rpc
   async test() {
     const params = this.ctx.query;
-    const result = await this.rpc.userService.user.login(params);
+    const result = await this.ctx.rpc.userService.user.login(params);
     this.ctx.body = result;
   }
 

@@ -13,7 +13,7 @@ class UserController extends Controller {
   // test http method call rpc
   async test() {
     const params = this.ctx.query;
-    const result = await this.rpc.userService.user.login(params);
+    const result = await this.ctx.rpc.userService.user.login(params);
     this.ctx.body = result;
   }
 
