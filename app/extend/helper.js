@@ -24,6 +24,7 @@ module.exports = {
       return { service, endpoint: `${svc}:${50051}` }; // userService -> user-svc:50051
     }
 
+    return { service }
   },
 
 };

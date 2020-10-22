@@ -1,6 +1,6 @@
 {
   "name": "egg-obelisk",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "gRPC framework for egg",
   "homepage": "https://github.com/msmao/egg-obelisk.git",
   "dependencies": {

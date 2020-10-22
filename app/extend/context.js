@@ -18,6 +18,7 @@ module.exports = {
     // const method = args.pop();
     this.app.logger.info(JSON.stringify(Object.assign(dns, { args: args.join('.') })));
     // return new this.app.proto.echo.Echo(dns.endpoint, this.app.gRPCClientCredentials);
+    if (!dns.endpoint) throw `not found ${dns.service} service endpoint.`
     return new this.app.proto.default.rpc(dns.endpoint, this.app.gRPCClientCredentials);
   }
 
