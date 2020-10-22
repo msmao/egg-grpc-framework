@@ -12,6 +12,18 @@ module.exports = appInfo => {
     key: appInfo.name + '_123456',
   };
 
+  // config.obelisk = {
+  //   listen: false, // 不启用 gRPCServer
+  //   listen: {
+  //     port: 50051,
+  //     hostname: '0.0.0.0',
+  //   },
+  //   protoLoader: {
+  //     options: { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true },
+  //   },
+  //   gRPCServerOptions: {},
+  // };
+
 
   config.security = {
     csrf: {

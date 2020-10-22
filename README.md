@@ -14,6 +14,8 @@ gRPC framework for egg
 $ npm install egg-obelisk --save
 ```
 
+## Usage
+
 ```json
 // package.json
 {
@@ -23,6 +25,25 @@ $ npm install egg-obelisk --save
   },
 }
 ```
+
+## Configuration
+
+```js
+// {app_root}/config/config.default.js
+config.obelisk = {
+  // listen: false, // disable gRPCServer
+  listen: {
+    port: 50051,
+    hostname: '0.0.0.0',
+  },
+  // protoLoader: {
+  //   options: { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true },
+  // },
+  // gRPCServerOptions: {},
+};
+```
+
+## Example
 
 ```js
 // {app_root}/app/router.js

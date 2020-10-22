@@ -17,8 +17,8 @@ module.exports = {
     const dns = this.helper.dns(args.shift());
     // const method = args.pop();
     this.app.logger.info(JSON.stringify(Object.assign(dns, { args: args.join('.') })));
-    // return new this.app.proto.echo.Echo(dns.endpoint, this.app.grpcClientCredentials);
-    return new this.app.proto.default.rpc(dns.endpoint, this.app.grpcClientCredentials);
+    // return new this.app.proto.echo.Echo(dns.endpoint, this.app.gRPCClientCredentials);
+    return new this.app.proto.default.rpc(dns.endpoint, this.app.gRPCClientCredentials);
   }
 
 };
