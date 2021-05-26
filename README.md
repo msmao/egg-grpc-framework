@@ -1,5 +1,7 @@
 
-gRPC framework for egg
+egg gRPC framework
+
+[中文文档](README.zh-CN.md)
 
 ## Features
 
@@ -11,7 +13,7 @@ gRPC framework for egg
 ## QuickStart
 
 ```bash
-$ npm install egg-obelisk --save
+$ npm install egg-grpc-framework --save
 ```
 
 ## Usage
@@ -21,7 +23,7 @@ $ npm install egg-obelisk --save
 {
   "name": "user",
   "egg": {
-    "framework": "egg-obelisk"
+    "framework": "egg-grpc-framework"
   },
 }
 ```
@@ -30,7 +32,7 @@ $ npm install egg-obelisk --save
 
 ```js
 // {app_root}/config/config.default.js
-config.obelisk = {
+config.gRPC = {
   // listen: false, // disable gRPCServer
   listen: {
     port: 50051,
@@ -99,6 +101,8 @@ class UserService extends Service {
 
 module.exports = UserService;
 ```
+
+## Test
 
 ```bash
 $ curl http://localhost:7001/rpc?username=admin&password=xxx

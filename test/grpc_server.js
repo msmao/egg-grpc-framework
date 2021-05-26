@@ -20,7 +20,6 @@ const call = (call, callback) => {
   callback(null, { stream: Buffer.from(JSON.stringify({ json })) })
   // console.log({ action: 'client.reqRes', data: call.request });
   // callback(null, { message: 'ok' });
-  // callback(new Error('mmmsaf'), null)
 }
 
 server.addService(serviceDefinition.RpcService.service, { call });

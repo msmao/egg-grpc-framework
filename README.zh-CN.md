@@ -6,23 +6,45 @@
 1. 支持 gRPC + Protobuf
 2. 扩展 egg 路由支持 RPC 方法
 3. 支持 egg 的中间件、插件
-4. 同时支持 HTTP、gRPC 请求，且可共用 Controller 和 Service
+4. 同时支持 HTTP、gRPC 请求，且共用 Controller 和 Service
 
 ## 快速开始
 
 ```bash
-$ npm install egg-obelisk --save
+$ npm install egg-grpc-framework --save
 ```
+
+## 用法
 
 ```json
 // package.json
 {
   "name": "user",
   "egg": {
-    "framework": "egg-obelisk"
+    "framework": "egg-grpc-framework"
   },
 }
 ```
+
+
+## 配置
+
+```js
+// {app_root}/config/config.default.js
+config.gRPC = {
+  // listen: false, // disable gRPCServer
+  listen: {
+    port: 50051,
+    hostname: '0.0.0.0',
+  },
+  // protoLoader: {
+  //   options: { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true },
+  // },
+  // gRPCServerOptions: {},
+};
+```
+
+## 案例
 
 ```js
 // {app_root}/app/router.js
@@ -78,6 +100,8 @@ class UserService extends Service {
 
 module.exports = UserService;
 ```
+
+## 测试
 
 ```bash
 $ curl http://localhost:7001/rpc?username=admin&password=xxx

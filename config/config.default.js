@@ -12,7 +12,7 @@ module.exports = appInfo => {
     key: appInfo.name + '_123456',
   };
 
-  // config.obelisk = {
+  // config.gRPC = {
   //   listen: false, // 不启用 gRPCServer
   //   listen: {
   //     port: 50051,
