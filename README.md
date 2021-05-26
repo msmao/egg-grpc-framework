@@ -1,5 +1,5 @@
 
-egg gRPC framework
+gRPC framework for egg
 
 [中文文档](README.zh-CN.md)
 
@@ -25,6 +25,7 @@ $ npm install egg-grpc-framework --save
   "egg": {
     "framework": "egg-grpc-framework"
   },
+  // ...
 }
 ```
 

@@ -1,5 +1,5 @@
 
-支持 gRPC 请求的 egg 框架
+支持 HTTP、gRPC 请求的 EGG 框架
 
 ## 特性
 
@@ -23,6 +23,7 @@ $ npm install egg-grpc-framework --save
   "egg": {
     "framework": "egg-grpc-framework"
   },
+  // ...
 }
 ```
 

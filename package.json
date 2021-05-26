@@ -1,7 +1,7 @@
 {
   "name": "egg-grpc-framework",
-  "version": "1.0.13",
-  "description": "egg gRPC framework",
+  "version": "1.0.14",
+  "description": "gRPC framework for egg",
   "homepage": "https://github.com/msmao/egg-grpc-framework.git",
   "dependencies": {
     "@grpc/grpc-js": "^1.1.5",
@@ -38,9 +38,9 @@
     "url": "git@github.com:msmao/egg-grpc-framework.git"
   },
   "keywords": [
-    "egg",
     "grpc",
     "egg-grpc",
+    "egg",
     "egg-framework"
   ],
   "author": "Jian",
